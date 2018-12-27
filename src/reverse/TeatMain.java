@@ -8,9 +8,10 @@ package reverse;
  */
 public class TeatMain {
     public static void main(String[] args) {
-        String ele = "12345";
+        String ele = "123";
         System.out.println(ReverseElement.reverseElement1(ele));
         System.out.println(ReverseElement.reverseElement2(ele));
         System.out.println(ReverseElement.reverseElement3(ele));
+        System.out.println(ReverseElement.reverseElement4(ele));
     }
 }

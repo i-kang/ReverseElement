@@ -12,41 +12,68 @@ class ReverseElement {
      * @param element 字符串
      * @return result 反转之后的字符串
      * @description 使用StringBuilder的reverse()方法。
-     * */
-    static String reverseElement1(String element){
-        StringBuilder result = new StringBuilder(element);
-        return result.reverse().toString();
+     */
+    static String reverseElement1(String element) {
+        //首先判断一下字符串是不是为空和其长度
+        if (element == null || element.length() <= 1) {
+            return element;
+        } else {
+            StringBuilder result = new StringBuilder(element);
+            return result.reverse().toString();
+        }
     }
 
     /**
      * @param element 字符串
      * @return result 反转之后的字符串
-     * @description 使用字符串数组,实现从尾部开始逐个逆序放入字符串.
-     * */
-    static String reverseElement2(String element)
-    {
-        //String转换成字符数组
-        char[] charArray = element.toCharArray();
-        //定义一个空字符串
-        StringBuilder result = new StringBuilder();
-        for (int i = charArray.length - 1; i >= 0; i--){
-            result.append(charArray[i]);
+     * @description 使用字符串数组, 实现从尾部开始逐个逆序放入字符串.
+     */
+    static String reverseElement2(String element) {
+        //首先判断一下字符串是不是为空和其长度
+        if (element == null || element.length() <= 1) {
+            return element;
+        } else {
+            //String转换成字符数组
+            char[] charArray = element.toCharArray();
+            //定义一个空字符串
+            StringBuilder result = new StringBuilder();
+            for (int i = charArray.length - 1; i >= 0; i--) {
+                result.append(charArray[i]);
+            }
+            return result.toString();
         }
-        return result.toString();
     }
 
     /**
      * @param element 字符串
      * @return result 反转之后的字符串
      * @description 使用String的CharAt方法取出字符串中的各个字符.
-     * */
+     */
     static String reverseElement3(String element) {
-        StringBuilder result = new StringBuilder();
-        int length = element.length();
-        for (int i = 0; i < length; i++) {
-            result.insert(0, element.charAt(i));
+        //首先判断一下字符串是不是为空和其长度
+        if (element == null || element.length() <= 1) {
+            return element;
+        } else {
+            StringBuilder result = new StringBuilder();
+            int length = element.length();
+            for (int i = 0; i < length; i++) {
+                result.insert(0, element.charAt(i));
+            }
+            return result.toString();
         }
-        return result.toString();
     }
 
+    /**
+     * @param element 字符串
+     * @return result 反转之后的字符串
+     * @description 使用String的CharAt加上递归的方法.
+     */
+    static String reverseElement4(String element) {
+        //首先判断一下字符串是不是为空和其长度
+        if (element == null || element.length() <= 1) {
+            return element;
+        } else {
+            return reverseElement4(element.substring(1)) + element.charAt(0);
+        }
+    }
 }
